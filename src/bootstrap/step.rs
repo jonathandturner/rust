@@ -424,6 +424,9 @@ impl<'a> Step<'a> {
                     self.dist(stage),
                 ];
 
+                base.insert(0, self.check_linkcheck(0));
+                base.insert(0, self.check_tidy(1));
+
                 // If we're testing the build triple, then we know we can
                 // actually run binaries and such, so we run all possible tests
                 // that we know about.
@@ -462,10 +465,6 @@ impl<'a> Step<'a> {
                         self.check_pretty_rpass(compiler),
                         self.check_pretty_rfail(compiler),
                         self.check_pretty_rpass_valgrind(compiler),
-
-                        // misc
-                        self.check_linkcheck(stage),
-                        self.check_tidy(stage),
                     ]);
                 }
                 return base

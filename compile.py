@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Copyright 2015-2016 The Rust Project Developers. See the COPYRIGHT
 # file at the top-level directory of this distribution and at
 # http://rust-lang.org/COPYRIGHT.
@@ -366,7 +367,7 @@ def main():
     rb = RustBuild()
     rb.config_toml = ''
     rb.config_mk = ''
-    rb.rust_root = os.path.abspath(os.path.join(__file__, '../../..'))
+    rb.rust_root = os.path.abspath(os.path.join(__file__, '..'))
     rb.build_dir = os.path.join(os.getcwd(), "build")
     rb.verbose = args.verbose
     rb.clean = args.clean
